@@ -25,5 +25,12 @@ namespace ITSA
             InitializeComponent();
             
         }
+
+        private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Grid item = (Grid)sender;
+            CheckBox ch = ((CheckBox)item.Children[2]);
+            ch.IsChecked = !ch.IsChecked;
+        }
     }
 }
