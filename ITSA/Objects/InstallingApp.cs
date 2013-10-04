@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 namespace ITSA.Objects
@@ -12,13 +13,17 @@ namespace ITSA.Objects
     {
         public App Origin { get; set; }
         public double DownloadPercentage { get; set; }
+        public string Status { get; set; }
+        private string TempName;
         public void Start()
         {
             WebClient wc = new WebClient();
-            string TempName = System.IO.Path.GetTempPath() + '\\' + Origin.Title + '.' + Origin.Extension;
+            TempName = System.IO.Path.GetTempPath() + '\\' + Origin.Title + '.' + Origin.Extension;
             wc.DownloadFileCompleted += wc_DownloadFileCompleted;
             wc.DownloadProgressChanged += wc_DownloadProgressChanged;
-            wc.DownloadFileAsync(Origin.DownloadUriForThisSystem,TempName);
+            wc.DownloadFileAsync(Origin.DownloadUriForThisSystem, TempName);
+            Status = "Downloading";
+            NotifyPropertyChanged("Status");
         }
 
         void wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -29,7 +34,41 @@ namespace ITSA.Objects
 
         void wc_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            
+            Status = "Installing";
+            NotifyPropertyChanged("Status");
+            Install();
+        }
+        public void Install()
+        {
+            ProcessStartInfo psi = new ProcessStartInfo();
+            if (Origin.InstallCommand[0] == '{')
+            {
+                psi.FileName = TempName;
+                psi.Arguments = String.Format(Origin.InstallCommand, "").Trim();
+            }
+            else
+            {
+                psi.UseShellExecute = true;
+                string fullCommand = String.Format(Origin.InstallCommand, '"' + TempName + '"');
+                int firstSplit = fullCommand.IndexOf(' ');
+                psi.FileName = fullCommand.Substring(0, firstSplit).TrimEnd();
+                psi.Arguments = fullCommand.Substring(firstSplit).TrimStart();
+            }
+            Process p = new Process()
+            {
+                StartInfo = psi,
+                EnableRaisingEvents = true
+            };
+            p.Exited += (sender, e) =>
+            {
+                Status = p.ExitCode == 0 ? "Completed" : "Error?";
+                NotifyPropertyChanged("Status");
+                if (p.ExitCode != 0 && System.Windows.MessageBox.Show("The installation may have failed :(\r\nDo you want to try to install it yourself?", "Oops", System.Windows.MessageBoxButton.YesNo) == System.Windows.MessageBoxResult.Yes)
+                {
+                    Process.Start(TempName);
+                }
+            };
+            p.Start();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
