@@ -121,7 +121,6 @@
   <ItemGroup>
     <Resource Include="Assets\Notepad++.png" />
     <Resource Include="Assets\Opera.png" />
-    <Resource Include="Assets\Origins.png" />
     <Resource Include="Assets\Spotify.png" />
     <Resource Include="Assets\Steam.png" />
     <Resource Include="Assets\uTorrent.png" />
@@ -140,6 +139,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Sublime Text 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Greenshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\PuTTY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\VLC Media Player.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
