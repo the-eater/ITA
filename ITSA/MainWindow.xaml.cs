@@ -46,12 +46,15 @@ namespace ITSA
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Chooser.Visibility = System.Windows.Visibility.Collapsed;
+            List<InstallingApp> queue = new List<InstallingApp>();
             foreach (ITSA.Objects.App sApp in selected)
             {
                 InstallingApp iApp = new InstallingApp() { Origin = sApp };
-                iApp.Start();
                 InstallItems.Items.Add(iApp);
+                queue.Add(iApp);
             }
+            foreach (InstallingApp ip in queue)
+                ip.Start();
             Installer.Visibility = System.Windows.Visibility.Visible;
         }
     }
