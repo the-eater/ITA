@@ -63,6 +63,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ValueConverters\ProductValueConverter.cs" />
+    <Compile Include="ValueConverters\StringFormatConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -83,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Objects\App.cs" />
     <Compile Include="Objects\AppGroup.cs" />
+    <Compile Include="Objects\InstallingApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

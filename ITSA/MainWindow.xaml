@@ -1,12 +1,15 @@
-﻿<Window x:Class="ITSA.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ValueConverters="clr-namespace:ITSA.ValueConverters" x:Class="ITSA.MainWindow"
         Title="ITSA">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Options.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Options.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <ValueConverters:ProductValueConverter x:Key="ProductValueConverter"/>
+            <ValueConverters:StringFormatConverter x:Key="StringFormatConverter"/>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
@@ -15,47 +18,77 @@
                 <Paragraph Padding="0">
                     <Run FontSize="48" Language="nl-nl" Text="I"/>
                     <Run Text=" "/>
+                    <Run Text=" "/>
+                    <Run Text=" "/>
                     <Run Text="nstall"/>
+                    <Run Text=" "/>
+                    <Run Text=" "/>
                     <Run Text=" "/>
                     <Run FontSize="48" Language="nl-nl" Text="T"/>
                     <Run Text=" "/>
+                    <Run Text=" "/>
+                    <Run Text=" "/>
                     <Run Language="nl-nl" Text="hat"/>
+                    <Run Text=" "/>
+                    <Run Text=" "/>
                     <Run Text=" "/>
                     <Run FontSize="48" Text="S"/>
                     <Run Text=" "/>
+                    <Run Text=" "/>
+                    <Run Text=" "/>
                     <Run Language="nl-nl" Text="hit"/>
                     <Run Text=" "/>
+                    <Run Text=" "/>
+                    <Run Text=" "/>
                     <Run FontSize="48" Text="A"/>
+                    <Run Text=" "/>
+                    <Run Text=" "/>
                     <Run Text=" "/>
                     <Run Language="nl-nl" Text="lready"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
         <ScrollViewer x:Name="Chooser" Margin="10,80,10,40" >
-            <ItemsControl ItemsSource="{DynamicResource groups}">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <WrapPanel />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border Width="140" Height="140" BorderBrush="#FFABADB3" BorderThickness="0">
-                                            <Grid Margin="5" Cursor="Hand" MouseLeftButtonUp="Grid_MouseLeftButtonUp">
-                                                <Image Source="{Binding Icon}" Width="130" Height="130"></Image>
-                                                <Label Content="{Binding Title}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="{x:Null}" Foreground="White"></Label>
-                                                <CheckBox HorizontalAlignment="Left" VerticalContentAlignment="Top" Margin="7,7,0,0" VerticalAlignment="Top" BorderThickness="0" />
-                                            </Grid>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-        </ScrollViewer>
-        <!--<ScrollViewer x:Name="Installer" Margin="10,80,10,40">
-            <ItemsControl>
-
+            <ItemsControl x:Name="Items" ItemsSource="{DynamicResource groups}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="140" Height="140" BorderBrush="#FFABADB3" BorderThickness="0">
+                            <Grid Margin="5" Cursor="Hand" Tag="{Binding}" MouseLeftButtonUp="Grid_MouseLeftButtonUp">
+                                <Image Source="{Binding Icon}" Width="130" Height="130"/>
+                                <Label Content="{Binding Title}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="{x:Null}" Foreground="White"/>
+                                <CheckBox HorizontalAlignment="Left" VerticalContentAlignment="Top" Margin="7,7,0,0" VerticalAlignment="Top" BorderThickness="0" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </ScrollViewer>-->
-        <Button Content="Install that shit already" Margin="10,0,10,10" Height="25" VerticalAlignment="Bottom"/>
+        </ScrollViewer>
+        <ScrollViewer Visibility="Collapsed" x:Name="Installer" Margin="10,80,10,40">
+            <ItemsControl x:Name="InstallItems">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="140" Height="140" BorderBrush="#FFABADB3" BorderThickness="0">
+                            <Grid Margin="5">
+                                <Image Source="{Binding Origin.Icon}" Width="130" Height="130"/>
+                                <Rectangle Fill="#7F000000" Width="{Binding DownloadPercentage, ConverterParameter=1.3, Converter={StaticResource ProductValueConverter}, Mode=OneWay}" HorizontalAlignment="Left"/>
+                                <Label Content="{Binding Origin.Title}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="{x:Null}" Foreground="White"/>
+                                <Label Content="{Binding DownloadPercentage, ConverterParameter='\{0\}%', Converter={StaticResource StringFormatConverter}, Mode=OneWay}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <Button Content="Install that shit already" Margin="10,0,10,10" Height="25" VerticalAlignment="Bottom" Click="Button_Click"/>
     </Grid>
 </Window>

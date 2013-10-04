@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using ITSA.Objects;
 namespace ITSA
 {
     /// <summary>
@@ -26,11 +26,33 @@ namespace ITSA
             
         }
 
+        List<ITSA.Objects.App> selected = new List<ITSA.Objects.App>();
+
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Grid item = (Grid)sender;
             CheckBox ch = ((CheckBox)item.Children[2]);
             ch.IsChecked = !ch.IsChecked;
+            if (ch.IsChecked==true)
+            {
+                selected.Add((ITSA.Objects.App)item.Tag);
+            }
+            else
+            {
+                selected.Remove((ITSA.Objects.App)item.Tag);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Chooser.Visibility = System.Windows.Visibility.Collapsed;
+            foreach (ITSA.Objects.App sApp in selected)
+            {
+                InstallingApp iApp = new InstallingApp() { Origin = sApp };
+                iApp.Start();
+                InstallItems.Items.Add(iApp);
+            }
+            Installer.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

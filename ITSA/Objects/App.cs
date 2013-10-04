@@ -22,10 +22,29 @@ namespace ITSA.Objects
             set;
         }
 
+        public bool IsMSI
+        {
+            get;
+            set;
+        }
+
+        public string Extension
+        {
+            get
+            {
+                return IsMSI ? "msi" : "exe";
+            }
+        }
+
         public String Title
         {
             get;
             set;
+        }
+
+        public Uri DownloadUriForThisSystem
+        {
+            get { return this.DownloadUri64!=null && System.Environment.Is64BitOperatingSystem ? this.DownloadUri64 : this.DownloadUri; }
         }
 
         public Uri DownloadUri
