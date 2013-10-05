@@ -63,9 +63,16 @@ namespace ITSA.Objects
             {
                 Status = p.ExitCode == 0 ? "Completed" : "Error?";
                 NotifyPropertyChanged("Status");
-                if (p.ExitCode != 0 && System.Windows.MessageBox.Show("The installation of '"+Origin.Title+"' may have failed :(\r\nDo you want to try to install it yourself?", "Oops", System.Windows.MessageBoxButton.YesNo) == System.Windows.MessageBoxResult.Yes)
+                if (p.ExitCode != 0 && System.Windows.MessageBox.Show("The installation of '" + Origin.Title + "' may have failed :(\r\nDo you want to try to install it yourself?", "Oops", System.Windows.MessageBoxButton.YesNo) == System.Windows.MessageBoxResult.Yes)
                 {
-                    Process.Start(TempName);
+                    try
+                    {
+                        Process.Start(TempName);
+                    }
+                    catch
+                    {
+
+                    }
                 }
             };
             try

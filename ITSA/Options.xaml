@@ -17,9 +17,11 @@
         <me:App Title="Greenshot" InstallCommand="{}{0} /VERYSILENT /NORESTART /NORUN" DownloadUri="http://sourceforge.net/projects/greenshot/files/Greenshot/Greenshot%201.1/Greenshot-INSTALLER-1.1.5.2643.exe/download" Icon="Assets/Greenshot.png"></me:App>
         <me:App Title="PuTTY" DownloadUri="http://the.earth.li/~sgtatham/putty/latest/x86/putty-0.63-installer.exe" InstallCommand="{}{0} /silent" Icon="Assets/PuTTY.png"></me:App>
         <me:App Title="VLC" DownloadUri="http://mirror.1000mbps.com/videolan/vlc/2.1.0/win32/vlc-2.1.0-win32.exe" InstallCommand="{}{0} /L=1033 /S" Icon="Assets/VLC Media Player.png"></me:App>
-        <!--<me:App Title="Dropbox" DownloadUri="https://d1ilhw0800yew8.cloudfront.net/client/Dropbox%202.4.1.exe" InstallCommand="{}{0} /S" Icon="Assets/Dropbox.png"></me:App>-->
+        <me:App Title="Dropbox" DownloadUri="https://d1ilhw0800yew8.cloudfront.net/client/Dropbox%202.4.1.exe" InstallCommand="{}{0} /S" Icon="Assets/Dropbox.png"></me:App>
+        <me:App Title="SkyDrive" DownloadUri="http://wl.dlservice.microsoft.com/download/A/D/A/ADA16AEE-A152-40D3-AD24-D4E5C575B05A/SkyDriveSetup.exe" InstallCommand="{}{0} /S" Icon="Assets/SkyDrive.png"></me:App>
         <me:App Title="foobar2000" DownloadUri="http://www.foobar2000.org/files/6d33f9c7adb3a143db75fd5a9f4b5b8b/foobar2000_v1.2.9.exe" InstallCommand="{}{0} /S" Icon="Assets/Foobar.png" ></me:App>
         <me:App Title="GIMP" DownloadUri="http://sourceforge.net/projects/gimp-win/files/GIMP%20%2B%20GTK%2B%20%28stable%20release%29/GIMP%202.8.6/gimp-2.8.6-setup.exe/download" Icon="Assets/GIMP.png" InstallCommand="{}{0} SP- /SILENT /NORESTART" ></me:App>
-        <me:App Title="LibreOffice" DownloadUri="http://donate.libreoffice.org/home/dl/win-x86/4.1.2/en-GB/LibreOffice_4.1.2_Win_x86.msi" InstallCommand="msiexec /i {0} /qf REGISTER_ALL_MSO_TYPES=1" IsMSI="True" ></me:App>
+        <me:App Title="LibreOffice*" DownloadUri="http://mirror.1000mbps.com/tdf/libreoffice/stable/4.1.2/win/x86/LibreOffice_4.1.2_Win_x86.msi" InstallCommand="msiexec /i {0}" IsMSI="True" Icon="Assets/OpenOffice.png" ></me:App>
+        <me:App Title="f.lux" DownloadUri="http://fluxupdate.stereopsis.com/flux-setup.exe" InstallCommand="{}{0} /S" Icon="Assets/Brightness.png"></me:App>
     </x:ArrayExtension>
 </ResourceDictionary>
