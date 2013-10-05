@@ -23,5 +23,6 @@
         <me:App Title="GIMP" DownloadUri="http://sourceforge.net/projects/gimp-win/files/GIMP%20%2B%20GTK%2B%20%28stable%20release%29/GIMP%202.8.6/gimp-2.8.6-setup.exe/download" Icon="Assets/GIMP.png" InstallCommand="{}{0} SP- /SILENT /NORESTART" ></me:App>
         <me:App Title="LibreOffice*" DownloadUri="http://mirror.1000mbps.com/tdf/libreoffice/stable/4.1.2/win/x86/LibreOffice_4.1.2_Win_x86.msi" InstallCommand="msiexec /i {0}" IsMSI="True" Icon="Assets/OpenOffice.png" ></me:App>
         <me:App Title="f.lux" DownloadUri="http://fluxupdate.stereopsis.com/flux-setup.exe" InstallCommand="{}{0} /S" Icon="Assets/Brightness.png"></me:App>
+        <me:App Title="MobaXterm*" DownloadUri="http://mobaxterm.mobatek.net/MobaXterm_Setup_6.5.msi" InstallCommand="msiexec /i {0}" Icon="Assets/MobaXterm.png"></me:App>
     </x:ArrayExtension>
 </ResourceDictionary>

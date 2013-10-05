@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ValueConverters="clr-namespace:ITSA.ValueConverters" x:Class="ITSA.MainWindow"
-        Title="ITSA">
+        Title="ITSA" Icon="Assets/ITSAbase.png" Width="750">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -13,42 +13,17 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <RichTextBox Height="64" Margin="10,10,10,0" VerticalAlignment="Top">
+        <RichTextBox Height="80" Margin="100,10,10,0" VerticalAlignment="Top" IsReadOnly="True" IsInactiveSelectionHighlightEnabled="True">
             <FlowDocument>
-                <Paragraph Padding="0">
-                    <Run FontSize="48" Language="nl-nl" Text="I"/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Text="nstall"/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run FontSize="48" Language="nl-nl" Text="T"/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Language="nl-nl" Text="hat"/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run FontSize="48" Text="S"/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Language="nl-nl" Text="hit"/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run FontSize="48" Text="A"/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Text=" "/>
-                    <Run Language="nl-nl" Text="lready"/>
+                <Paragraph>
+                    <Run FontSize="35" Language="nl-nl" Text="Install That Shit Already"/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Language="nl-nl" Text="All programs marked with an * can't be installed silently"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <ScrollViewer x:Name="Chooser" Margin="10,80,10,40" >
+        <ScrollViewer x:Name="Chooser" Margin="10,100,10,40" >
             <ItemsControl x:Name="Items" ItemsSource="{DynamicResource groups}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -68,7 +43,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        <ScrollViewer Visibility="Collapsed" x:Name="Installer" Margin="10,80,10,40">
+        <ScrollViewer Visibility="Collapsed" x:Name="Installer" Margin="10,100,10,40">
             <ItemsControl x:Name="InstallItems">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -90,6 +65,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        <Button Content="Install that shit already" Margin="10,0,10,10" Height="25" VerticalAlignment="Bottom" Click="Button_Click"/>
+        <Button Content="Install it already" Margin="10,0,10,10" Height="25" VerticalAlignment="Bottom" Click="Button_Click"/>
+        <Image HorizontalAlignment="Left" Height="80" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Source="Assets/ITSAbase.png"/>
     </Grid>
 </Window>
