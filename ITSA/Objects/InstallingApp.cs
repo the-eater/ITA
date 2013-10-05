@@ -68,7 +68,19 @@ namespace ITSA.Objects
                     Process.Start(TempName);
                 }
             };
-            p.Start();
+            try
+            {
+                p.Start();
+            }
+            catch (Exception e)
+            {
+                Status = "Broken";
+                NotifyPropertyChanged("Status");
+                if (System.Windows.MessageBox.Show("The installation of '" + Origin.Title + "' is broken :(\r\nDo you want to try downloading it yourself? (it may be that the download link is pointing to a page)", "Oops", System.Windows.MessageBoxButton.YesNo) == System.Windows.MessageBoxResult.Yes)
+                {
+                    Process.Start(Origin.DownloadUriForThisSystem.AbsoluteUri);
+                }
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
