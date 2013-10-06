@@ -8,7 +8,7 @@
         <me:App Title="Opera" Icon="Assets/Opera.png" InstallCommand="{}{0} /silent /singleprofile 1 /launchopera 0" DownloadUri="http://get.geo.opera.com/pub/opera/desktop/16.0.1196.80/win/Opera_16.0.1196.80_Setup.exe" />
         <me:App Title="Java" Icon="Assets/Java.png" InstallCommand="{}{0} /s" DownloadUri="http://javadl.sun.com/webapps/download/AutoDL?BundleId=80812" DownloadUri64="http://javadl.sun.com/webapps/download/AutoDL?BundleId=80814"></me:App>
         <me:App Title="Spotify" Icon="Assets/Spotify.png" DownloadUri="http://download.spotify.com/Spotify%20Installer.exe" InstallCommand="{}{0} /silent"></me:App>
-        <me:App Title="Skype" Icon="Assets/Skype.png" DownloadUri="http://download.skype.com/dd990b57e5cc3ca19c594ee633e3a337/partner/60/SkypeSetupFull.exe" InstallCommand="msiexec /i {0} STARTSKYPE=FALSE /qf"></me:App>
+        <me:App Title="Skype" Icon="Assets/Skype.png" DownloadUri="http://download.skype.com/dd990b57e5cc3ca19c594ee633e3a337/partner/60/SkypeSetupFull.exe" InstallCommand="msiexec /i {0} STARTSKYPE=FALSE /qf"/>
         <me:App Title="Notepad++" Icon="Assets/Notepad++.png" DownloadUri="http://download.tuxfamily.org/notepadplus/6.5/npp.6.5.Installer.exe" InstallCommand="{}{0} /S"></me:App>
         <me:App Title="Sublime Text 2" Icon="Assets/Sublime Text 2.png" DownloadUri="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20Setup.exe" DownloadUri64="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64%20Setup.exe" InstallCommand="{}{0} /silent"></me:App>
         <me:App Title="FileZilla" Icon="Assets/FileZilla.png" DownloadUri="http://download.filezilla-project.org/FileZilla_3.7.3_win32-setup.exe" InstallCommand="{}{0} /S"></me:App>
@@ -17,12 +17,13 @@
         <me:App Title="Greenshot" InstallCommand="{}{0} /VERYSILENT /NORESTART /NORUN" DownloadUri="http://sourceforge.net/projects/greenshot/files/Greenshot/Greenshot%201.1/Greenshot-INSTALLER-1.1.5.2643.exe/download" Icon="Assets/Greenshot.png"></me:App>
         <me:App Title="PuTTY" DownloadUri="http://the.earth.li/~sgtatham/putty/latest/x86/putty-0.63-installer.exe" InstallCommand="{}{0} /silent" Icon="Assets/PuTTY.png"></me:App>
         <me:App Title="VLC" DownloadUri="http://mirror.1000mbps.com/videolan/vlc/2.1.0/win32/vlc-2.1.0-win32.exe" InstallCommand="{}{0} /L=1033 /S" Icon="Assets/VLC Media Player.png"></me:App>
-        <me:App Title="Dropbox" DownloadUri="https://d1ilhw0800yew8.cloudfront.net/client/Dropbox%202.4.1.exe" InstallCommand="{}{0} /S" Icon="Assets/Dropbox.png"></me:App>
+        <me:App Title="Dropbox" DownloadUri="http://itsa.eaterofco.de/bins/dropbox.exe" InstallCommand="{}{0} /S" Icon="Assets/Dropbox.png"></me:App>
         <me:App Title="SkyDrive" DownloadUri="http://wl.dlservice.microsoft.com/download/A/D/A/ADA16AEE-A152-40D3-AD24-D4E5C575B05A/SkyDriveSetup.exe" InstallCommand="{}{0} /S" Icon="Assets/SkyDrive.png"></me:App>
-        <me:App Title="foobar2000" DownloadUri="http://www.foobar2000.org/files/6d33f9c7adb3a143db75fd5a9f4b5b8b/foobar2000_v1.2.9.exe" InstallCommand="{}{0} /S" Icon="Assets/Foobar.png" ></me:App>
+        <me:App Title="foobar2000" DownloadUri="http://itsa.eaterofco.de/bins/foobar2000.exe" InstallCommand="{}{0} /S" Icon="Assets/Foobar.png" ></me:App>
         <me:App Title="GIMP" DownloadUri="http://sourceforge.net/projects/gimp-win/files/GIMP%20%2B%20GTK%2B%20%28stable%20release%29/GIMP%202.8.6/gimp-2.8.6-setup.exe/download" Icon="Assets/GIMP.png" InstallCommand="{}{0} SP- /SILENT /NORESTART" ></me:App>
         <me:App Title="LibreOffice*" DownloadUri="http://mirror.1000mbps.com/tdf/libreoffice/stable/4.1.2/win/x86/LibreOffice_4.1.2_Win_x86.msi" InstallCommand="msiexec /i {0}" IsMSI="True" Icon="Assets/OpenOffice.png" ></me:App>
         <me:App Title="f.lux" DownloadUri="http://fluxupdate.stereopsis.com/flux-setup.exe" InstallCommand="{}{0} /S" Icon="Assets/Brightness.png"></me:App>
         <me:App Title="MobaXterm*" DownloadUri="http://mobaxterm.mobatek.net/MobaXterm_Setup_6.5.msi" InstallCommand="msiexec /i {0}" Icon="Assets/MobaXterm.png"></me:App>
+        <me:App Title="7zip" DownloadUri="http://sourceforge.net/projects/sevenzip/files/7-Zip/9.20/7z920.msi/download" Icon="Assets/7z.png" IsMSI="True" InstallCommand="msiexec /i {0} /qr" ></me:App>
     </x:ArrayExtension>
 </ResourceDictionary>

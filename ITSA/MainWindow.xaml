@@ -13,16 +13,8 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <RichTextBox Height="80" Margin="100,10,10,0" VerticalAlignment="Top" IsReadOnly="True" IsInactiveSelectionHighlightEnabled="True">
-            <FlowDocument>
-                <Paragraph>
-                    <Run FontSize="35" Language="nl-nl" Text="Install That Shit Already"/>
-                </Paragraph>
-                <Paragraph>
-                    <Run Language="nl-nl" Text="All programs marked with an * can't be installed silently"/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
+        <Label Content="Install It Already" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,10,0,0" FontSize="34" />
+        <Label Content="All apps marked with a * can't be installed silently" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,65,0,0" />
         <ScrollViewer x:Name="Chooser" Margin="10,100,10,40" >
             <ItemsControl x:Name="Items" ItemsSource="{DynamicResource groups}">
                 <ItemsControl.ItemsPanel>
@@ -43,7 +35,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        <ScrollViewer Visibility="Collapsed" x:Name="Installer" Margin="10,100,10,40">
+        <ScrollViewer Visibility="Collapsed" x:Name="Installer" Margin="10,100,10,10">
             <ItemsControl x:Name="InstallItems">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>

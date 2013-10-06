@@ -36,6 +36,8 @@ namespace ITSA.Objects
         {
             Status = "Installing";
             NotifyPropertyChanged("Status");
+            DownloadPercentage = 100;
+            NotifyPropertyChanged("DownloadPercentage");
             Install();
         }
         public void Install()

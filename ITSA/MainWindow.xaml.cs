@@ -45,7 +45,7 @@ namespace ITSA
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Chooser.Visibility = System.Windows.Visibility.Collapsed;
+            ((Button)sender).Visibility = Chooser.Visibility = System.Windows.Visibility.Collapsed;
             List<InstallingApp> queue = new List<InstallingApp>();
             foreach (ITSA.Objects.App sApp in selected)
             {
