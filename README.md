@@ -11,6 +11,7 @@ If you want an application/program added, make an issue containing:
 
  - Name
  - Download url (direct download would be amazing)
+ - (optionally) 64 bit download url (direct download would be amazing)
  - (optionally) Metro/Modern styled icon
  - (optionally) Silent install command
 
