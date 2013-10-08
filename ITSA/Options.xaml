@@ -8,7 +8,7 @@
         <me:App Title="Opera" Icon="Assets/Opera.png" InstallCommand="{}{0} /silent /singleprofile 1 /launchopera 0" DownloadUri="http://get.geo.opera.com/pub/opera/desktop/16.0.1196.80/win/Opera_16.0.1196.80_Setup.exe" />
         <me:App Title="Java" Icon="Assets/Java.png" InstallCommand="{}{0} /s" DownloadUri="http://javadl.sun.com/webapps/download/AutoDL?BundleId=80812" DownloadUri64="http://javadl.sun.com/webapps/download/AutoDL?BundleId=80814"></me:App>
         <me:App Title="Spotify" Icon="Assets/Spotify.png" DownloadUri="http://download.spotify.com/Spotify%20Installer.exe" InstallCommand="runas /trustlevel:0x20000 {0} /silent"></me:App>
-        <me:App Title="Skype" Icon="Assets/Skype.png" DownloadUri="http://download.skype.com/dd990b57e5cc3ca19c594ee633e3a337/partner/60/SkypeSetupFull.exe" InstallCommand="{0} STARTSKYPE=FALSE /qf"/>
+        <me:App Title="Skype" Icon="Assets/Skype.png" DownloadUri="http://www.skype.com/go/getskype-msi" InstallCommand="msiexec /i {0} STARTSKYPE=FALSE /qf"/>
         <me:App Title="Notepad++" Icon="Assets/Notepad++.png" DownloadUri="http://download.tuxfamily.org/notepadplus/6.5/npp.6.5.Installer.exe" InstallCommand="{}{0} /S"></me:App>
         <me:App Title="Sublime Text 2" Icon="Assets/Sublime Text 2.png" DownloadUri="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20Setup.exe" DownloadUri64="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64%20Setup.exe" InstallCommand="{}{0} /silent"></me:App>
         <me:App Title="FileZilla" Icon="Assets/FileZilla.png" DownloadUri="http://download.filezilla-project.org/FileZilla_3.7.3_win32-setup.exe" InstallCommand="{}{0} /S"></me:App>
