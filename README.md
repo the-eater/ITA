@@ -1,7 +1,9 @@
-ITSA
+ITA
 ====
 
-Install That Shit Already: A mass (silent) installer
+(We're changing all the names from ITSA to ITA so bear with me if some still say ITSA or Install That Shit Already)
+
+Install That Already: A mass (silent) installer
 
 ![Preview gif #1](http://itsa.eaterofcorps.es/itsa.gif)
 
