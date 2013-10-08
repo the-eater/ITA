@@ -53,9 +53,9 @@ namespace ITSA
                 InstallItems.Items.Add(iApp);
                 queue.Add(iApp);
             }
+            Installer.Visibility = System.Windows.Visibility.Visible;
             foreach (InstallingApp ip in queue)
                 ip.Start();
-            Installer.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }
