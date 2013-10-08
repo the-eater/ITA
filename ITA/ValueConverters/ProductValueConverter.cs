@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Globalization;
-namespace ITSA.ValueConverters
+namespace ITA.ValueConverters
 {
     class ProductValueConverter : IValueConverter
     {

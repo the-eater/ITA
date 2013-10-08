@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace ITSA.Objects
+namespace ITA.Objects
 {
     public class App
     {
@@ -17,6 +17,12 @@ namespace ITSA.Objects
         }
 
         public String InstallCommand
+        {
+            get;
+            set;
+        }
+
+        public int ExpectedExitCode
         {
             get;
             set;

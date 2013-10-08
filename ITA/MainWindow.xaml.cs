@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ITSA.Objects;
-namespace ITSA
+using ITA.Objects;
+namespace ITA
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -26,7 +26,7 @@ namespace ITSA
             
         }
 
-        List<ITSA.Objects.App> selected = new List<ITSA.Objects.App>();
+        List<ITA.Objects.App> selected = new List<ITA.Objects.App>();
 
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -35,22 +35,35 @@ namespace ITSA
             ch.IsChecked = !ch.IsChecked;
             if (ch.IsChecked==true)
             {
-                selected.Add((ITSA.Objects.App)item.Tag);
+                selected.Add((ITA.Objects.App)item.Tag);
             }
             else
             {
-                selected.Remove((ITSA.Objects.App)item.Tag);
+                selected.Remove((ITA.Objects.App)item.Tag);
             }
         }
+
+        Objects.ActionQueue aq = new ActionQueue(); 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ((Button)sender).Visibility = Chooser.Visibility = System.Windows.Visibility.Collapsed;
             List<InstallingApp> queue = new List<InstallingApp>();
-            foreach (ITSA.Objects.App sApp in selected)
+            foreach (ITA.Objects.App sApp in selected)
             {
                 InstallingApp iApp = new InstallingApp() { Origin = sApp };
                 InstallItems.Items.Add(iApp);
+                iApp.Downloaded += () =>
+                {
+                    aq.Add(() =>
+                    {
+                        iApp.Install();
+                    });
+                };
+                iApp.Installed += () =>
+                {
+                    aq.Done();
+                };
                 queue.Add(iApp);
             }
             Installer.Visibility = System.Windows.Visibility.Visible;

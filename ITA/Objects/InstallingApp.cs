@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-namespace ITSA.Objects
+namespace ITA.Objects
 {
     public class InstallingApp : INotifyPropertyChanged
     {
@@ -34,14 +34,20 @@ namespace ITSA.Objects
 
         void wc_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            Status = "Installing";
+            Status = "Queued";
             NotifyPropertyChanged("Status");
             DownloadPercentage = 100;
             NotifyPropertyChanged("DownloadPercentage");
-            Install();
+            if(Downloaded!=null)
+                Downloaded();
         }
+
+        public event Action Downloaded;
+        public event Action Installed;
         public void Install()
         {
+            Status = "Installing";
+            NotifyPropertyChanged("Status");
             ProcessStartInfo psi = new ProcessStartInfo();
             if (Origin.InstallCommand[0] == '{')
             {
@@ -51,7 +57,7 @@ namespace ITSA.Objects
             else
             {
                 psi.UseShellExecute = true;
-                string fullCommand = String.Format(Origin.InstallCommand, '"' + TempName + '"');
+                string fullCommand = String.Format(Origin.InstallCommand, '"' + TempName + '"',"\\\"" + TempName + "\\\"");
                 int firstSplit = fullCommand.IndexOf(' ');
                 psi.FileName = fullCommand.Substring(0, firstSplit).TrimEnd();
                 psi.Arguments = fullCommand.Substring(firstSplit).TrimStart();
@@ -63,9 +69,9 @@ namespace ITSA.Objects
             };
             p.Exited += (sender, e) =>
             {
-                Status = p.ExitCode == 0 ? "Completed" : "Error?";
+                Status = (p.ExitCode == 0 || p.ExitCode == Origin.ExpectedExitCode) ? "Completed" : "Error?";
                 NotifyPropertyChanged("Status");
-                if (p.ExitCode != 0 && System.Windows.MessageBox.Show("The installation of '" + Origin.Title + "' may have failed :(\r\nDo you want to try to install it yourself?", "Oops", System.Windows.MessageBoxButton.YesNo) == System.Windows.MessageBoxResult.Yes)
+                if (p.ExitCode != 0 && p.ExitCode != Origin.ExpectedExitCode && System.Windows.MessageBox.Show("The installation of '" + Origin.Title + "' may have failed :(\r\nDo you want to try to install it yourself?", "Oops (Code "+p.ExitCode+")", System.Windows.MessageBoxButton.YesNo) == System.Windows.MessageBoxResult.Yes)
                 {
                     try
                     {
@@ -76,6 +82,9 @@ namespace ITSA.Objects
 
                     }
                 }
+                if (Installed != null)
+                    Installed();
+
             };
             try
             {
@@ -89,6 +98,8 @@ namespace ITSA.Objects
                 {
                     Process.Start(Origin.DownloadUriForThisSystem.AbsoluteUri);
                 }
+                if (Installed != null)
+                    Installed();
             }
         }
 

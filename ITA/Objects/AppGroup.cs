@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ITSA.Objects
+namespace ITA.Objects
 {
     public class AppGroup : System.Collections.IList
     {

@@ -1,25 +1,25 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
-                    xmlns:me="clr-namespace:ITSA.Objects"
+                    xmlns:me="clr-namespace:ITA.Objects"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <x:ArrayExtension x:Key="groups" Type="me:App">
         <me:App Title="Google Chrome" IsMSI="True"  Icon="Assets/Google Chrome.png" InstallCommand="msiexec /i {0} /qf" DownloadUri="http://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BA3A14578-C3D0-4D33-148B-11F89CB44275%7D%26lang%3Den%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26installdataindex%3Ddefaultbrowser/edgedl/chrome/install/GoogleChromeStandaloneEnterprise.msi" />
         <me:App Title="FireFox" Icon="Assets/Firefox.png" InstallCommand="{}{0} /silent" DownloadUri="http://download.mozilla.org/?product=firefox-24.0&amp;os=win&amp;lang=en-US" />
         <me:App Title="Opera" Icon="Assets/Opera.png" InstallCommand="{}{0} /silent /singleprofile 1 /launchopera 0" DownloadUri="http://get.geo.opera.com/pub/opera/desktop/16.0.1196.80/win/Opera_16.0.1196.80_Setup.exe" />
         <me:App Title="Java" Icon="Assets/Java.png" InstallCommand="{}{0} /s" DownloadUri="http://javadl.sun.com/webapps/download/AutoDL?BundleId=80812" DownloadUri64="http://javadl.sun.com/webapps/download/AutoDL?BundleId=80814"></me:App>
-        <me:App Title="Spotify" Icon="Assets/Spotify.png" DownloadUri="http://download.spotify.com/Spotify%20Installer.exe" InstallCommand="runas /trustlevel:0x20000 {0} /silent"></me:App>
-        <me:App Title="Skype" Icon="Assets/Skype.png" DownloadUri="http://www.skype.com/go/getskype-msi" InstallCommand="msiexec /i {0} STARTSKYPE=FALSE /qf"/>
+        <me:App Title="Spotify" ExpectedExitCode="2" Icon="Assets/Spotify.png" DownloadUri="http://itsa.eaterofcorps.es/bins/spotify.exe" InstallCommand="{}{0} /S"></me:App>
+        <me:App Title="Skype" Icon="Assets/Skype.png" DownloadUri="http://www.skype.com/go/getskype-msi" InstallCommand="msiexec /i {0} /qr"/>
         <me:App Title="Notepad++" Icon="Assets/Notepad++.png" DownloadUri="http://download.tuxfamily.org/notepadplus/6.5/npp.6.5.Installer.exe" InstallCommand="{}{0} /S"></me:App>
-        <me:App Title="Sublime Text 2" Icon="Assets/Sublime Text 2.png" DownloadUri="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20Setup.exe" DownloadUri64="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64%20Setup.exe" InstallCommand="{}{0} /silent"></me:App>
+        <me:App Title="Sublime Text 2" Icon="Assets/Sublime Text 2.png" DownloadUri="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20Setup.exe" DownloadUri64="http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64%20Setup.exe" InstallCommand="{}{0} /VERYSILENT /NORESTART /TASKS=&quot;contextentry&quot; /NORUN"></me:App>
         <me:App Title="FileZilla" Icon="Assets/FileZilla.png" DownloadUri="http://download.filezilla-project.org/FileZilla_3.7.3_win32-setup.exe" InstallCommand="{}{0} /S"></me:App>
         <me:App Title="Steam" IsMSI="True"  Icon="Assets/Steam.png" InstallCommand="msiexec /i {0} /qf" DownloadUri="http://cdn.steampowered.com/download/SteamInstall.msi"></me:App>
         <me:App Title="µTorrent" Icon="Assets/uTorrent.png" InstallCommand="{}{0} /S" DownloadUri="http://download-new.utorrent.com/endpoint/utorrent/os/windows/track/stable/"></me:App>
         <me:App Title="Greenshot" InstallCommand="{}{0} /VERYSILENT /NORESTART /NORUN" DownloadUri="http://sourceforge.net/projects/greenshot/files/Greenshot/Greenshot%201.1/Greenshot-INSTALLER-1.1.5.2643.exe/download" Icon="Assets/Greenshot.png"></me:App>
         <me:App Title="PuTTY" DownloadUri="http://the.earth.li/~sgtatham/putty/latest/x86/putty-0.63-installer.exe" InstallCommand="{}{0} /silent" Icon="Assets/PuTTY.png"></me:App>
         <me:App Title="VLC" DownloadUri="http://mirror.1000mbps.com/videolan/vlc/2.1.0/win32/vlc-2.1.0-win32.exe" InstallCommand="{}{0} /L=1033 /S" Icon="Assets/VLC Media Player.png"></me:App>
-        <me:App Title="Dropbox" DownloadUri="http://itsa.eaterofco.de/bins/dropbox.exe" InstallCommand="{}{0} /S" Icon="Assets/Dropbox.png"></me:App>
+        <me:App Title="Dropbox" DownloadUri="http://ITA.eaterofco.de/bins/dropbox.exe" InstallCommand="{}{0} /S" Icon="Assets/Dropbox.png"></me:App>
         <me:App Title="SkyDrive" DownloadUri="http://wl.dlservice.microsoft.com/download/A/D/A/ADA16AEE-A152-40D3-AD24-D4E5C575B05A/SkyDriveSetup.exe" InstallCommand="{}{0} /S" Icon="Assets/SkyDrive.png"></me:App>
-        <me:App Title="foobar2000" DownloadUri="http://itsa.eaterofco.de/bins/foobar2000.exe" InstallCommand="{}{0} /S" Icon="Assets/Foobar.png" ></me:App>
+        <me:App Title="foobar2000" DownloadUri="http://ITA.eaterofco.de/bins/foobar2000.exe" InstallCommand="{}{0} /S" Icon="Assets/Foobar.png" ></me:App>
         <me:App Title="GIMP" DownloadUri="http://sourceforge.net/projects/gimp-win/files/GIMP%20%2B%20GTK%2B%20%28stable%20release%29/GIMP%202.8.6/gimp-2.8.6-setup.exe/download" Icon="Assets/GIMP.png" InstallCommand="{}{0} SP- /SILENT /NORESTART" ></me:App>
         <me:App Title="LibreOffice*" DownloadUri="http://mirror.1000mbps.com/tdf/libreoffice/stable/4.1.2/win/x86/LibreOffice_4.1.2_Win_x86.msi" InstallCommand="msiexec /i {0}" IsMSI="True" Icon="Assets/OpenOffice.png" ></me:App>
         <me:App Title="f.lux" DownloadUri="http://fluxupdate.stereopsis.com/flux-setup.exe" InstallCommand="{}{0} /S" Icon="Assets/Brightness.png"></me:App>

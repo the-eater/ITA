@@ -1,8 +1,8 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:ValueConverters="clr-namespace:ITSA.ValueConverters" x:Class="ITSA.MainWindow"
-        Title="ITSA" Icon="Assets/ITSAbase.png" Width="750">
+        xmlns:ValueConverters="clr-namespace:ITA.ValueConverters" x:Class="ITA.MainWindow"
+        Title="ITA" Icon="Assets/ITAbase.png" Width="750">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -58,6 +58,6 @@
             </ItemsControl>
         </ScrollViewer>
         <Button Content="Install it already" Margin="10,0,10,10" Height="25" VerticalAlignment="Bottom" Click="Button_Click"/>
-        <Image HorizontalAlignment="Left" Height="80" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Source="Assets/ITSAbase.png"/>
+        <Image HorizontalAlignment="Left" Height="80" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Source="Assets/ITAbase.png"/>
     </Grid>
 </Window>

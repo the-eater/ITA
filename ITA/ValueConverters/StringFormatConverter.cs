@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace ITSA.ValueConverters
+namespace ITA.ValueConverters
 {
     class StringFormatConverter : IValueConverter
     {
