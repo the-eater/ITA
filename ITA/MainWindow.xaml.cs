@@ -70,5 +70,11 @@ namespace ITA
             foreach (InstallingApp ip in queue)
                 ip.Start();
         }
+
+        private void OnHelpClick(object sender, RoutedEventArgs e)
+        {
+            About ab = new About();
+            ab.Show();
+        }
     }
 }
