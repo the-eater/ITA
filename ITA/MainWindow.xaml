@@ -114,7 +114,7 @@
         </ScrollViewer>
         <Button Content="Install it already" Margin="10,0,10,10" Height="25" VerticalAlignment="Bottom" Click="Button_Click"/>
         <Image HorizontalAlignment="Left" Height="80" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Source="Assets/NewITALogo.png"/>
-        <Button Content="" HorizontalAlignment="Left" Height="24" Margin="705,10,0,0" VerticalAlignment="Top" Width="27" Style="{DynamicResource HelpBttnStyle}" Click="OnHelpClick">
+        <Button Content="" HorizontalAlignment="Right" Height="24" Margin="705,10,11,0" VerticalAlignment="Top" Width="27" Style="{DynamicResource HelpBttnStyle}" Click="OnHelpClick">
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Help.png"/>
             </Button.Background>
